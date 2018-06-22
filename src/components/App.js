@@ -32,11 +32,11 @@ class App extends Component {
                   : <AuthedUser />}
                 <div>
                   <Nav />
-                  <Route path='/login' exact component={Login} />
-                  <Route path='/' exact component={Home} />
-                  <Route path='/questions/:id' exact component={QuestionDetails} />
-                  <Route path='/add' exact component={NewPoll} />
-                  <Route path='/leaderboard' exact component={Leaderboard} />
+                  <Route exact path='/login' component={Login} />
+                  <Route exact path='/' component={Home} />
+                  <Route exact path='/questions/:id' component={QuestionDetails} />
+                  <Route exact path='/add' component={NewPoll} />
+                  <Route exact path='/leaderboard' component={Leaderboard} />
                 </div>
               </div>
             }
