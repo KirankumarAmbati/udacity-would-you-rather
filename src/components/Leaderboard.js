@@ -32,8 +32,6 @@ class Leaderboard extends Component {
                   alt={`Avatar of user`}
                   className='avatar'
                 />
-                {console.log(users[id])}
-                {console.log(authedUser)}
                 <h2>{users[id].id === authedUser ? 'You are here' : users[id].name}</h2>
                 <p>Questions asked: {getNumberOfUserQuestionsAsked(questions, id)}</p>
                 <p>Questions answered: {getNumberOfUserQuestionsAnswered(questions, id)}</p>
