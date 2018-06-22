@@ -1,0 +1,17 @@
+.avatar {
+    height:50px;
+    width:50px;
+    border-radius:50%;
+}
+
+.list {
+    list-style: none
+}
+
+.login {
+    margin: 30px
+}
+
+.name {
+    vertical-align: middle
+}

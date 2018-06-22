@@ -1,0 +1,13 @@
+.question {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+.questionOptionOne {
+    color: red;
+}
+
+.questionOptionTwo {
+    color: blue;
+}

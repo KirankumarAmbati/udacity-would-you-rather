@@ -1,0 +1,22 @@
+.homeList {
+    border: 1px solid black;
+    margin: 5%;
+    list-style: none;
+    padding: 2%
+}
+
+.btn {
+    height: 30px;
+    width: 200px;
+    font-family: sans-serif;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.btn.unanswered {
+    background-color: red;
+}
+
+.btn.answered {
+    background-color: green;
+}
