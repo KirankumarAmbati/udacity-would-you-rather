@@ -5,32 +5,6 @@ import { Redirect } from 'react-router-dom'
 
 import '../assets/css/leaderBoard.css'
 
-function getNumberOfUserQuestionsAsked(questions, user) {
-  let sum = 0
-  Object.entries(questions).forEach(([key, value]) => {
-    if (value.author === user) {
-      sum++
-    }
-  })
-  return sum
-}
-
-function getNumberOfUserQuestionsAnswered(questions, user) {
-  let sum = 0
-  Object.entries(questions).forEach(([key, value]) => {
-    if (value.optionOne.votes.includes(user) ||
-      value.optionTwo.votes.includes(user)) {
-      sum++
-    }
-  })
-  return sum
-}
-
-function getTotalNumberOfUserQuestions(questions, user) {
-  return getNumberOfUserQuestionsAsked(questions, user) 
-    + getNumberOfUserQuestionsAnswered(questions, user)
-}
-
 class Leaderboard extends Component {
 
   render() {
@@ -58,7 +32,9 @@ class Leaderboard extends Component {
                   alt={`Avatar of user`}
                   className='avatar'
                 />
-                <h2>{users[id].name}</h2>
+                {console.log(users[id])}
+                {console.log(authedUser)}
+                <h2>{users[id].id === authedUser ? 'You are here' : users[id].name}</h2>
                 <p>Questions asked: {getNumberOfUserQuestionsAsked(questions, id)}</p>
                 <p>Questions answered: {getNumberOfUserQuestionsAnswered(questions, id)}</p>
               </div>
@@ -68,6 +44,31 @@ class Leaderboard extends Component {
       </div>
     )
   }
+}
+
+function getTotalNumberOfUserQuestions(questions, user) {
+  return getNumberOfUserQuestionsAsked(questions, user) + getNumberOfUserQuestionsAnswered(questions, user)
+}
+
+function getNumberOfUserQuestionsAsked(questions, user) {
+  let sum = 0
+  Object.entries(questions).forEach(([key, value]) => {
+    if (value.author === user) {
+      sum++
+    }
+  })
+  return sum
+}
+
+function getNumberOfUserQuestionsAnswered(questions, user) {
+  let sum = 0
+  Object.entries(questions).forEach(([key, value]) => {
+    if (value.optionOne.votes.includes(user) ||
+      value.optionTwo.votes.includes(user)) {
+      sum++
+    }
+  })
+  return sum
 }
 
 function mapStateToProps({ users, userIds, authedUser, questions }) {

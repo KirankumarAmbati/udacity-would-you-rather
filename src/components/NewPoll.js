@@ -4,14 +4,12 @@ import { Redirect} from 'react-router-dom'
 
 import { handleSaveQuestion } from '../actions/questions'
 
-const defaultState = {
-  textForOptionOne: '',
-  textForOptionTwo: '',
-  submit: false
-}
-
 class NewPoll extends Component {
-  state = defaultState
+  state = {
+    textForOptionOne: '',
+    textForOptionTwo: '',
+    submit: false
+  }
 
   handleChange = (e, stateField) => {
     const text = e.target.value

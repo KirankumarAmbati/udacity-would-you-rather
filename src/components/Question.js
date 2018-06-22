@@ -24,7 +24,6 @@ class Question extends Component {
 
 function mapStateToProps({ questions }, { id }) {
   const question = questions[id]
-
   return {
     id,
     question

@@ -11,7 +11,6 @@ class QuestionDetails extends Component {
     e.preventDefault()
 
     const { dispatch, authedUser, id } = this.props
-
     dispatch(handleVoteForOption({
       authedUser,
       qid: id,

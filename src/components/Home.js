@@ -52,19 +52,15 @@ class Home extends Component {
 
 function getUnansweredQuestionIds(authedUser, questions) {
   return Object.keys(questions)
-    //get all questionsIds which the authedUser NOT answered
     .filter((key) => !questions[key].optionOne.votes.includes(authedUser)
       && !questions[key].optionTwo.votes.includes(authedUser))
-    //sort it so the most recently questionIds are on top
     .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
 }
 
 function getAnsweredQuestionIds(authedUser, questions) {
   return Object.keys(questions)
-    //get all questionsIds which the authedUser answered
     .filter((key) => questions[key].optionOne.votes.includes(authedUser)
       || questions[key].optionTwo.votes.includes(authedUser))
-    //sort it so the most recently questionIds are on top
     .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
 }
 

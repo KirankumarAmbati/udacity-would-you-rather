@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 import '../assets/css/navigation.css'
 
-class Nav extends Component {
+class Navigation extends Component {
   render() {
     
     const { authedUser } = this.props
@@ -36,4 +36,4 @@ function mapStateToProps({ authedUser }) {
   }
 }
 
-export default connect(mapStateToProps)(Nav)
+export default connect(mapStateToProps)(Navigation)

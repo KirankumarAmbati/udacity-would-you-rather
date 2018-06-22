@@ -32,10 +32,10 @@ class Login extends Component {
               <Link to={`/`} >
                 <img
                   src={users[id].avatarURL}
-                  alt={`Avatar of user`}
+                  alt={`Avatar`}
                   className='avatar'
                 />
-                <span className="name">
+                <span>
                   {users[id].name}
                 </span>
               </Link>
