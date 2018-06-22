@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom'
 
 import { handleVoteForOption } from '../actions/questions';
 import '../assets/css/questionDetails.css'
+import FourNotFour from './FourNotFour'
 
 class QuestionDetails extends Component {
   handleVote = (e, option) => {
@@ -20,13 +21,14 @@ class QuestionDetails extends Component {
 
   render() {
     const { question, authedUser, users } = this.props
+
+    if (question === null) {
+      return <FourNotFour />
+    }
+
     if (authedUser === null) {
       return <Redirect to='/login' />
     }
-    if (question === null) {
-      return <p>Oops !! 404 !</p>
-    }
-    const avatar = getAvatar(question, users)
 
     return (
       <center>
@@ -86,13 +88,6 @@ function isOptionSelectedByCurrentUser(authedUser, option) {
     return true
   }
   return false
-}
-
-function getAvatar(question, users) {
-  let avatar = question && question.author && users[question.author] && users[question.author].avatarURL
-    ? users[question.author].avatarURL
-    : null
-  return avatar
 }
 
 function mapStateToProps({ questions, users, authedUser }, props) {

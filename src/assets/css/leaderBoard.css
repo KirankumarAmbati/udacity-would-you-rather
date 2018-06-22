@@ -1,8 +1,8 @@
 .list {
     list-style: none;
     box-shadow: 0px 0px 105px -25px;
-    margin: 20px;
-    padding: 30px;
+    margin: 2%;
+    padding: 3%;
     font-family: 'Courier New', Courier, monospace;
-    width: 400px;
+    width: 20%;
 }

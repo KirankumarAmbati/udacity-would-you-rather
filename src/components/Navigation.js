@@ -17,7 +17,7 @@ class Nav extends Component {
                   Home
                 </NavLink>
                 <NavLink to='/add' exact activeClassName='active' className="NavLink">
-                  New Poll
+                  New
                 </NavLink>
                 <NavLink to='/leaderboard' exact activeClassName='active' className="NavLink">
                   Leaderboard
