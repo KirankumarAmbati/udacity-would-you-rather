@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { handleSaveQuestion } from '../actions/questions'
 import { Redirect} from 'react-router-dom'
+
+import { handleSaveQuestion } from '../actions/questions'
 
 const defaultState = {
   textForOptionOne: '',
@@ -11,6 +12,7 @@ const defaultState = {
 
 class NewPoll extends Component {
   state = defaultState
+
   handleChange = (e, stateField) => {
     const text = e.target.value
 
@@ -18,6 +20,7 @@ class NewPoll extends Component {
       [stateField]: text
     }))
   }
+
   handleSubmit = (e) => {
     e.preventDefault()
 
@@ -34,9 +37,11 @@ class NewPoll extends Component {
   }
   render() {
     const { textForOptionOne, textForOptionTwo, submit } = this.state
-    if (submit) {
+
+    if (submit || this.props.authedUser === null) {
       return <Redirect to='/' />
     }
+
     return (
       <div>
         <h3> Would you rather </h3>
@@ -45,16 +50,13 @@ class NewPoll extends Component {
             placeholder="First option"
             value={textForOptionOne}
             onChange={(e) => this.handleChange(e, 'textForOptionOne')}
-          // className='textarea'
           />
           <textarea
             placeholder="Second option"
             value={textForOptionTwo}
             onChange={(e) => this.handleChange(e, 'textForOptionTwo')}
-          // className='textarea'
           />
           <button
-            // className='btn'
             type='submit'
             disabled={textForOptionOne === '' || textForOptionTwo === ''}>
             Submit

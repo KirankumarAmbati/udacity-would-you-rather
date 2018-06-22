@@ -2,9 +2,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
+import '../assets/css/nav.css'
+
 class Nav extends Component {
   render() {
+    
     const { authedUser } = this.props
+
     return (
       <div>
         {authedUser !== null

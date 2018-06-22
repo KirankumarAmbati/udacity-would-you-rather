@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+
 import { handleVoteForOption } from '../actions/questions';
 
 class QuestionDetails extends Component {
@@ -22,7 +23,7 @@ class QuestionDetails extends Component {
       return <Redirect to='/login' />
     }
     if (question === null) {
-      return <p>404 This Question doesn't exist</p>
+      return <p>Oops !! 404 !</p>
     }
     const avatar = getAvatar(question, users)
 
@@ -30,15 +31,15 @@ class QuestionDetails extends Component {
       <div>
         {isQuestionAnsweredByCurrentUser(authedUser, question)
           ? (<div className='questionDetails'>
-            <p>This Question is answered</p>
-            <p>Option A: {question.optionOne.text}</p>
-            <p>{question.optionOne.votes.length} people voted for this option.
-             That are {calculatePercentage(question, question.optionOne)} Percent!
-             {isOptionSelectedByCurrentUser(authedUser, question.optionOne) && ' You have selected this option!'}</p>
-            <p>Option B: {question.optionTwo.text}</p>
-            <p>{question.optionTwo.votes.length} people voted for this question,
-             That are {calculatePercentage(question, question.optionTwo)} Percent!
-             {isOptionSelectedByCurrentUser(authedUser, question.optionTwo) && ' You have selected this option!'}</p>
+              <p>This Question is answered</p>
+              <p>Option A: {question.optionOne.text}</p>
+                <p>{question.optionOne.votes.length} people voted for this option.
+                That is {calculatePercentage(question, question.optionOne)} Percent!
+                {isOptionSelectedByCurrentUser(authedUser, question.optionOne) && ' You have selected this option!'}</p>
+              <p>Option B: {question.optionTwo.text}</p>
+                <p>{question.optionTwo.votes.length} people voted for this question,
+                That are {calculatePercentage(question, question.optionTwo)} Percent!
+                {isOptionSelectedByCurrentUser(authedUser, question.optionTwo) && ' You have selected this option!'}</p>
           </div>)
           : (<div className='questionDetails'>
             <img

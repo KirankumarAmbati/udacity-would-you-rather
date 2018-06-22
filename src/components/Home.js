@@ -9,6 +9,7 @@ class Home extends Component {
   state = {
     showAnswered: false
   }
+
   render() {
     const { showAnswered } = this.state
     const { authedUser, answeredQuestionIds, unansweredQuestionIds } = this.props
@@ -20,10 +21,10 @@ class Home extends Component {
     return (
       <center>
         <div className='homepage'>
-        <h3> Home Page </h3>
+        <h3>Dashboard</h3>
         <button
           onClick={(e) => this.setState((prevState) => ({ showAnswered: !prevState.showAnswered }))}
-          className={showAnswered=== true ? 'btn answered': 'btn unanswered'} 
+          className={showAnswered === true ? 'btn answered': 'btn unanswered'} 
         >
           {showAnswered === true ? 'Answered questions' : 'Unanswered questions'}
         </button>

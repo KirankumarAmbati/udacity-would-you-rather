@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 function getNumberOfUserQuestionsAsked(questions, user) {
   let sum = 0
@@ -29,7 +30,11 @@ function getTotalNumberOfUserQuestions(questions, user) {
 class Leaderboard extends Component {
 
   render() {
-    const { users, userIds, questions } = this.props
+    const { users, userIds, questions, authedUser } = this.props
+
+    if (authedUser === null) {
+      return <Redirect to='/' />
+    }
     return (
       <div>
         <h3>Leaderboard</h3>

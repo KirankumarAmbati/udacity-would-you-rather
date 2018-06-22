@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { setAuthedUser } from '../actions/authedUser';
 
+import '../assets/css/login.css'
+
 class LoggedInUser extends Component {
 
   logout = (e) => {
@@ -16,8 +18,7 @@ class LoggedInUser extends Component {
     return (
       <div>
         {authedUser !== null
-          ? <div className='loggedInUser'>
-            <button onClick={(e) => this.logout(e)}>
+          ? <div>
               <img
                 src={users[authedUser].avatarURL}
                 alt={`Avatar`}
@@ -26,7 +27,9 @@ class LoggedInUser extends Component {
               <div >
                 {users[authedUser].name}
               </div>
-            </button>
+              <button onClick={(e) => this.logout(e)}>
+                Logout
+              </button>
           </div>
           : <div />}
       </div>

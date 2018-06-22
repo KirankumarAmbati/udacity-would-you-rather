@@ -7,6 +7,7 @@ import '../assets/css/question.css'
 class Question extends Component {
   render() {
     const { id, question: {optionOne, optionTwo} } = this.props
+      
     return (
       <div>
         <Link to={`/questions/${id}`} className='question'>

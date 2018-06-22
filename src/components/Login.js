@@ -9,9 +9,7 @@ class Login extends Component {
 
   handleSetAuthedUser = (e, id) => {
     e.preventDefault()
-
-    const { dispatch } = this.props
-    dispatch(setAuthedUser(id))
+    this.props.dispatch(setAuthedUser(id))
   }
 
   render() {
