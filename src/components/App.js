@@ -6,17 +6,18 @@ import LoadingBar from 'react-redux-loading'
 
 import Login from './Login'
 import Home from './Home'
-import LoggedInUser from './LoggedInUser'
+import AuthedUser from './AuthedUser'
 import QuestionDetails from './QuestionDetails'
-import Nav from './Nav'
+import Nav from './Navigation'
 import NewPoll from './NewPoll'
 import Leaderboard from './Leaderboard'
 
 class App extends Component {
-  
+
   componentDidMount() {
     this.props.dispatch(handleInitialData())
   }
+
   render() {
     return (
       <Router>
@@ -28,7 +29,7 @@ class App extends Component {
               : <div>
                 {this.props.authedUser === null
                   ? null
-                  : <LoggedInUser />}
+                  : <AuthedUser />}
                 <div>
                   <Nav />
                   <Route path='/login' exact component={Login} />
