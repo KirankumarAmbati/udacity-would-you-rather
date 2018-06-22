@@ -13,6 +13,7 @@ import NewPoll from './NewPoll'
 import Leaderboard from './Leaderboard'
 
 class App extends Component {
+  
   componentDidMount() {
     this.props.dispatch(handleInitialData())
   }
