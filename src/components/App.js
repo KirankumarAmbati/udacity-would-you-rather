@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { handleInitialData } from '../actions/shared'
 import LoadingBar from 'react-redux-loading'
 
+import { handleInitialData } from '../actions/shared'
 import Login from './Login'
 import Home from './Home'
 import AuthedUser from './AuthedUser'
@@ -13,11 +13,9 @@ import NewPoll from './NewPoll'
 import Leaderboard from './Leaderboard'
 
 class App extends Component {
-
   componentDidMount() {
     this.props.dispatch(handleInitialData())
   }
-
   render() {
     return (
       <Router>

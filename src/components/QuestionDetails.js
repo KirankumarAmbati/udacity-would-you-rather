@@ -35,7 +35,7 @@ class QuestionDetails extends Component {
         <div>
           {isQuestionAnsweredByCurrentUser(authedUser, question)
             ? (<div className='questionDetails'>
-                <p>You choose : &nbsp;
+                <p>You chose : &nbsp;
                   {isOptionSelectedByCurrentUser(authedUser, question.optionOne) && question.optionOne.text}
                   {isOptionSelectedByCurrentUser(authedUser, question.optionTwo) && question.optionTwo.text}
                 </p>
