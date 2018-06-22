@@ -20,7 +20,7 @@ class QuestionDetails extends Component {
   }
 
   render() {
-    const { question, authedUser, users } = this.props
+    const { question, authedUser } = this.props
 
     if (question === null) {
       return <FourNotFour />
