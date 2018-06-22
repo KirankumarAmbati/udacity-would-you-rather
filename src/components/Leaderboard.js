@@ -2,10 +2,15 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
+
+import '../assets/css/leaderBoard.css'
+
 function getNumberOfUserQuestionsAsked(questions, user) {
   let sum = 0
   Object.entries(questions).forEach(([key, value]) => {
-    if (value.author === user) sum++
+    if (value.author === user) {
+      sum++
+    }
   })
   return sum
 }
@@ -22,9 +27,8 @@ function getNumberOfUserQuestionsAnswered(questions, user) {
 }
 
 function getTotalNumberOfUserQuestions(questions, user) {
-  let total = getNumberOfUserQuestionsAsked(questions, user) +
-    getNumberOfUserQuestionsAnswered(questions, user)
-  return total
+  return getNumberOfUserQuestionsAsked(questions, user) 
+    + getNumberOfUserQuestionsAnswered(questions, user)
 }
 
 class Leaderboard extends Component {
@@ -37,19 +41,26 @@ class Leaderboard extends Component {
     }
     return (
       <div>
-        <h3>Leaderboard</h3>
+        <h1
+          style ={{
+            margin:'60px'
+          }}
+        >Leaderboard</h1>
         <ul>
           {userIds.map((id) => (
-            <li key={id}>
+            <li
+              key={id}
+              className="list"
+            >
               <div>
                 <img
                   src={users[id].avatarURL}
                   alt={`Avatar of user`}
                   className='avatar'
                 />
-                <p>Username: {users[id].name}</p>
-                <p>Asked questions: {getNumberOfUserQuestionsAsked(questions, id)}</p>
-                <p>Answered questions: {getNumberOfUserQuestionsAnswered(questions, id)}</p>
+                <h2>{users[id].name}</h2>
+                <p>Questions asked: {getNumberOfUserQuestionsAsked(questions, id)}</p>
+                <p>Questions answered: {getNumberOfUserQuestionsAnswered(questions, id)}</p>
               </div>
             </li>
           ))}
@@ -63,7 +74,7 @@ function mapStateToProps({ users, userIds, authedUser, questions }) {
   return {
     users,
     userIds: Object.keys(users).sort((a,b) => getTotalNumberOfUserQuestions(questions, b)
-     - getTotalNumberOfUserQuestions(questions, a)),
+      - getTotalNumberOfUserQuestions(questions, a)),
     authedUser,
     questions
   }

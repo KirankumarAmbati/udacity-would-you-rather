@@ -24,7 +24,8 @@ class Home extends Component {
         <h3>Dashboard</h3>
         <button
           onClick={(e) => this.setState((prevState) => ({ showAnswered: !prevState.showAnswered }))}
-          className={showAnswered === true ? 'btn answered': 'btn unanswered'} 
+          className={showAnswered === true ? 'btn answered': 'btn unanswered'}
+          style = {{cursor:'pointer'}}
         >
           {showAnswered === true ? 'Answered questions' : 'Unanswered questions'}
         </button>

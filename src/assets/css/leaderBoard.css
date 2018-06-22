@@ -1,0 +1,8 @@
+.list {
+    list-style: none;
+    box-shadow: 0px 0px 105px -25px;
+    margin: 20px;
+    padding: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    width: 400px;
+}

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
 import { handleVoteForOption } from '../actions/questions';
+import '../assets/css/questionDetails.css'
 
 class QuestionDetails extends Component {
   handleVote = (e, option) => {
@@ -28,35 +29,40 @@ class QuestionDetails extends Component {
     const avatar = getAvatar(question, users)
 
     return (
-      <div>
-        {isQuestionAnsweredByCurrentUser(authedUser, question)
-          ? (<div className='questionDetails'>
-              <p>This Question is answered</p>
-              <p>Option A: {question.optionOne.text}</p>
-                <p>{question.optionOne.votes.length} people voted for this option.
-                That is {calculatePercentage(question, question.optionOne)} Percent!
-                {isOptionSelectedByCurrentUser(authedUser, question.optionOne) && ' You have selected this option!'}</p>
-              <p>Option B: {question.optionTwo.text}</p>
-                <p>{question.optionTwo.votes.length} people voted for this question,
-                That are {calculatePercentage(question, question.optionTwo)} Percent!
-                {isOptionSelectedByCurrentUser(authedUser, question.optionTwo) && ' You have selected this option!'}</p>
-          </div>)
-          : (<div className='questionDetails'>
-            <img
-              src={avatar}
-              alt={`${avatar ? avatar.name : 'Name not found.'}`}
-              className='avatar'
-            />
-            <p>Would you rather</p>
-            <button onClick={(e) => this.handleVote(e, 'optionOne')}>
-              {question.optionOne.text}
-            </button>
-            <button onClick={(e) => this.handleVote(e, 'optionTwo')}>
-              {question.optionTwo.text}
-            </button>
-          </div>)
-        }
-      </div>
+      <center>
+        <div>
+          {isQuestionAnsweredByCurrentUser(authedUser, question)
+            ? (<div className='questionDetails'>
+                <p>You choose : &nbsp;
+                  {isOptionSelectedByCurrentUser(authedUser, question.optionOne) && question.optionOne.text}
+                  {isOptionSelectedByCurrentUser(authedUser, question.optionTwo) && question.optionTwo.text}
+                </p>
+
+                  <p>{question.optionOne.votes.length} people voted for {question.optionOne.text} option.
+                  That is <span style={{fontWeight:'bold', fontSize:'20px'}}>{calculatePercentage(question, question.optionOne)}</span>%
+                  </p>
+                  <p>{question.optionTwo.votes.length} people voted for {question.optionTwo.text} question,
+                  That is <span style={{fontWeight:'bold', fontSize:'20px'}}>{calculatePercentage(question, question.optionTwo)}</span>%</p>
+            </div>)
+            : (<div className='questionDetails'>
+                  <h1>Would you rather</h1>
+                  <button
+                  onClick={(e) => this.handleVote(e, 'optionOne')}
+                  className='option one'
+                  >
+                    {question.optionOne.text}
+                  </button>
+                  <button
+                  onClick={(e) => this.handleVote(e, 'optionTwo')}
+                  className='option two'
+                  >
+                    {question.optionTwo.text}
+                  </button>
+              </div>)
+          }
+        </div>
+      </center>
+        
     )
   }
 }

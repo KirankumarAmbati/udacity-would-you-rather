@@ -43,24 +43,53 @@ class NewPoll extends Component {
     }
 
     return (
-      <div>
+      <div
+        style={{
+          margin:'10px'
+        }}
+      >
         <h3> Would you rather </h3>
         <form onSubmit={this.handleSubmit}>
-          <textarea
+          <input
+            type = "text"
+            style = {{
+              height:'30px',
+              width:'200px',
+              margin:'10px'
+            }}
             placeholder="First option"
             value={textForOptionOne}
             onChange={(e) => this.handleChange(e, 'textForOptionOne')}
           />
-          <textarea
+          <input
+            type = "text"
+            style = {{
+              height:'30px',
+              width:'200px',
+              margin:'10px'
+            }}
             placeholder="Second option"
             value={textForOptionTwo}
             onChange={(e) => this.handleChange(e, 'textForOptionTwo')}
           />
-          <button
-            type='submit'
-            disabled={textForOptionOne === '' || textForOptionTwo === ''}>
-            Submit
-          </button>
+          <div>
+            <button
+              type='submit'
+              style={{
+                  border: '2px solid black',
+                  color: 'white',
+                  backgroundColor: 'green',
+                  width: '200px',
+                  height: '40px',
+                  margin: '10px',
+                  cursor: 'pointer',
+                  fontSize: '18px',
+                  fontFamily: 'Courier New, Courier, monospace'
+              }}
+              disabled={textForOptionOne === '' || textForOptionTwo === ''}>
+              Submit
+            </button>
+          </div>
         </form>
       </div>
     )

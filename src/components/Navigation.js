@@ -13,13 +13,13 @@ class Nav extends Component {
       <div>
         {authedUser !== null
           ? <nav className='nav'>
-                <NavLink to='/' exact activeClassName='active'>
+                <NavLink to='/' exact activeClassName='active' className="NavLink">
                   Home
                 </NavLink>
-                <NavLink to='/add' exact activeClassName='active'>
+                <NavLink to='/add' exact activeClassName='active' className="NavLink">
                   New Poll
                 </NavLink>
-                <NavLink to='/leaderboard' exact activeClassName='active'>
+                <NavLink to='/leaderboard' exact activeClassName='active' className="NavLink">
                   Leaderboard
                 </NavLink>
           </nav>

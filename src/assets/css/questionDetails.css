@@ -1,0 +1,16 @@
+.option {
+    width: 200px;
+    height: 60px;
+    font-family: 'Courier New', Courier, monospace;
+    margin:20px;
+    color:white;
+    font-size: 18px;
+}
+
+.option.one {
+    background-color: red
+}
+
+.option.two {
+    background-color: blue;
+}

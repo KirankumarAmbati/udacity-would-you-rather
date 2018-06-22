@@ -1,3 +1,22 @@
 .nav {
     display: flex;
 }
+
+.NavLink {
+    border: 2px solid black;
+    color: white;
+    background-color: black;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    margin: 10px;
+    text-decoration: none;
+    line-height: 2.5;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.NavLink:hover {
+    color: black;
+    background-color: white;
+}

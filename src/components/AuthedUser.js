@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import { setAuthedUser } from '../actions/authedUser';
 
 import '../assets/css/login.css'
+import '../assets/css/authedUser.css'
 
 class LoggedInUser extends Component {
 
@@ -19,15 +20,19 @@ class LoggedInUser extends Component {
       <div>
         {authedUser !== null
           ? <div>
-              <img
-                src={users[authedUser].avatarURL}
-                alt={`Avatar`}
-                className='avatar'
-              />
-              <div >
-                {users[authedUser].name}
+              <div>
+                <img
+                  src={users[authedUser].avatarURL}
+                  alt={`Avatar`}
+                  className='avatar'
+                />
+                <span>
+                  Hello, {users[authedUser].name} !
+                </span>
               </div>
-              <button onClick={(e) => this.logout(e)}>
+              <button
+                className="logout"
+                onClick={(e) => this.logout(e)}>
                 Logout
               </button>
           </div>
